@@ -1,61 +1,53 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using Overbooking.Compartilhado.Implementacoes;
+using Overbooking.Compartilhado.Interfaces;
+using Overbooking.Models;
+using Overbooking.Negocio.Fabricas;
+using Overbooking.Negocio.Interfaces;
+using System;
 using System.Web.Mvc;
 
 namespace Overbooking.Controllers
 {
-    public class IdadesController : Controller
+    public class IdadesController : ControladorPadrao
     {
-        private IServicoDeDataDeSaida _servicoDeDataDeSaida;
+        private IServicoDeIdade _servicoDeIdade;
 
-        public DatasDeSaidaController()
+        public IdadesController()
         {
-            _servicoDeDataDeSaida = FabricaDeServicoDeDataDeSaida.Crie();
+            _servicoDeIdade = FabricaDeServicos.FabricaDeServicoDeIdade.Crie();
         }
 
         public ActionResult Index()
         {
-            ViewBag.ItensCadastrados = ObtenhaItensParaApresentacao(_servicoDeDataDeSaida.ObtenhaTodos());
+            ViewBag.ItensCadastrados = ObtenhaItensParaApresentacao(_servicoDeIdade.ObtenhaTodos());
             return View();
         }
 
         [HttpPost]
-        public ActionResult Cadastrar(DataDeSaidaModel dataDeSaidaView)
+        public ActionResult Cadastrar(IdadeDoPassageiroModel idadeDoPassageiroView)
         {
             if (ModelState.IsValid)
             {
-                var dataDeSaida = CrieDataDeSaida(dataDeSaidaView);
+                var idadeDoPassageiro = CrieIdadeDoPassageiro(idadeDoPassageiroView);
 
-                _servicoDeDataDeSaida.Adicione(dataDeSaida);
+                _servicoDeIdade.Adicione(idadeDoPassageiro);
 
                 return RedirectToAction("Index");
             }
 
-            return View("Index", dataDeSaidaView);
+            return View("Index", idadeDoPassageiroView);
         }
 
-        private IDataDeSaida CrieDataDeSaida(DataDeSaidaModel dataDeSaidaModel)
+        private IIdadeDoPassageiro CrieIdadeDoPassageiro(IdadeDoPassageiroModel idadeDoPassageiroModel)
         {
-            var dataDeSaida = new DataDeSaida
+            var idadeDoPassageiro = new IdadeDoPassageiro
             {
                 Identificador = Guid.NewGuid().ToString(),
-                Data = dataDeSaidaModel.Data,
-                ProbabilidadeDeComparecimento = dataDeSaidaModel.ProbabilidadeDeComparecimento.Value
+                Idade = idadeDoPassageiroModel.Idade.Value,
+                ProbabilidadeDeComparecimento = idadeDoPassageiroModel.ProbabilidadeDeComparecimento.Value
             };
 
-            return dataDeSaida;
-        }
-
-        private IEnumerable<ApresentacaoPicModel> ObtenhaItensParaApresentacao(IEnumerable<IDataDeSaida> listaDataDeSaida)
-        {
-            return from dataDeSaida in listaDataDeSaida
-                   select new ApresentacaoPicModel()
-                   {
-                       Parametro = dataDeSaida.ToString(),
-                       ProbabilidadeDeComparecimento = dataDeSaida.ProbabilidadeDeComparecimento
-                   };
+            return idadeDoPassageiro;
         }
     }
 }

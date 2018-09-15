@@ -150,11 +150,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DatasDeSaidaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ControladorPadrao.cs" />
     <Compile Include="Controllers\IdadesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ApresentacaoPicModel.cs" />
+    <Compile Include="Models\IdadeDoPassageiroModel.cs" />
     <Compile Include="Models\DataDeSaidaModel.cs" />
     <Compile Include="Models\ParametroIndependenteModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -202,10 +204,10 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\DatasDeSaida\Index.cshtml" />
     <Content Include="Views\Shared\_Pic.cshtml" />
+    <Content Include="Views\Idades\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Idades\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

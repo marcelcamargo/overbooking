@@ -12,12 +12,15 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var pic in @ViewBag.ItensCadastrados)
+                @if (ViewBag.ItensCadastrados != null)
                 {
-                    <tr>
-                        <td>@pic.Parametro</td>
-                        <td>@pic.ProbabilidadeDeComparecimento %</td>
-                    </tr>
+                    foreach (var pic in ViewBag.ItensCadastrados)
+                    {
+                        <tr>
+                            <td>@pic.Parametro</td>
+                            <td>@pic.ProbabilidadeDeComparecimento %</td>
+                        </tr>
+                    }
                 }
             </tbody>
         </table>

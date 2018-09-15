@@ -6,5 +6,10 @@ namespace Overbooking.Compartilhado.Implementacoes
     {
         public string Origem { get; set ; }
         public string Destino { get ; set; }
+
+        public override string ToString()
+        {
+            return $"{Origem} - {Destino}";
+        }
     }
 }
