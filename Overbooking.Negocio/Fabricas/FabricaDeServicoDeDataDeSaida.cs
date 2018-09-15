@@ -9,7 +9,7 @@ namespace Overbooking.Negocio.Fabricas
     {
         public static IServicoDeDataDeSaida Crie()
         {
-            return new ServicoDeDataDeSaida(FabricaDeRepositorio.CrieRepositorio<IDataDeSaida>());
+            return new ServicoDeDataDeSaida(FabricaDeRepositorio<IDataDeSaida>.ObtenhaRepositorio());
         }
     }
 }

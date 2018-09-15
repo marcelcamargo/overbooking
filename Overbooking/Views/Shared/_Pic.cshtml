@@ -1,0 +1,25 @@
+﻿@using Overbooking.Models
+
+<hr />
+
+<div class="row">
+    <div class="table-responsive">
+        <table id="tabelaVoos" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Parâmetro</th>
+                    <th>Pic</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var pic in @ViewBag.ItensCadastrados)
+                {
+                    <tr>
+                        <td>@pic.Parametro</td>
+                        <td>@pic.ProbabilidadeDeComparecimento %</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

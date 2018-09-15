@@ -3,6 +3,6 @@
     public interface IParametroIndependente
     {
         string Identificador { get; set; }
-        decimal? ProbabilidadeDeComparecimento { get; set; }
+        int ProbabilidadeDeComparecimento { get; set; }
     }
 }

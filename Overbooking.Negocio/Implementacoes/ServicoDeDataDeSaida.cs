@@ -1,11 +1,7 @@
 ﻿using Overbooking.Compartilhado.Interfaces;
 using Overbooking.Dados.Interfaces;
 using Overbooking.Negocio.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Overbooking.Negocio.Implementacoes
 {
@@ -16,6 +12,16 @@ namespace Overbooking.Negocio.Implementacoes
         public ServicoDeDataDeSaida(IRepositorio<IDataDeSaida> repositorio)
         {
             _repositorio = repositorio;
+        }
+
+        public void Adicione(IDataDeSaida dataDeSaida)
+        {
+            _repositorio.Adicione(dataDeSaida);
+        }
+
+        public IEnumerable<IDataDeSaida> ObtenhaTodos()
+        {
+            return _repositorio.ObtenhaTodos();
         }
     }
 }
