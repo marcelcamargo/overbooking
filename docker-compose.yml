@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  overbooking:
+    image: ${DOCKER_REGISTRY}overbooking
+    build:
+      context: .\Overbooking
+      dockerfile: Dockerfile
