@@ -40,8 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Fabricas\FabricaDeServicoDeDataDeSaida.cs" />
+    <Compile Include="Fabricas\FabricaDeServicos.cs" />
+    <Compile Include="Implementacoes\ServicoDeIdade.cs" />
+    <Compile Include="Implementacoes\ServicoGenerico.cs" />
     <Compile Include="Implementacoes\ServicoDeDataDeSaida.cs" />
+    <Compile Include="Interfaces\IServicoDeIdade.cs" />
+    <Compile Include="Interfaces\IServicoGenerico.cs" />
     <Compile Include="Interfaces\IServicoDeDataDeSaida.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

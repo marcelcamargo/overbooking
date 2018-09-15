@@ -11,6 +11,8 @@
 
     @using (Html.BeginForm("Cadastrar", "DatasDeSaida", FormMethod.Post, new { @class = "form-horizontal" }))
     {
+        @Html.AntiForgeryToken()
+
         <div class="form-group">
             <label for="Data" class="control-label col-xs-2">Data de saída</label>
             <div class="col-xs-10">
@@ -21,7 +23,7 @@
         <div class="form-group">
             <label for="ProbabilidadeDeComparecimento" class="control-label col-xs-2">PI</label>
             <div class="col-xs-10">
-                <input type="number" value="@(Model?.ProbabilidadeDeComparecimento)" class="form-control" id="ProbabilidadeDeComparecimento" name="ProbabilidadeDeComparecimento" placeholder="PI">
+                <input type="number" value="@(Model?.ProbabilidadeDeComparecimento)" min="0" max="100" class="form-control" id="ProbabilidadeDeComparecimento" name="ProbabilidadeDeComparecimento" placeholder="PI">
                 @Html.ValidationMessageFor(model => model.ProbabilidadeDeComparecimento)
             </div>
         </div>
