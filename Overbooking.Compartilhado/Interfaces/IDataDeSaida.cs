@@ -2,7 +2,7 @@
 
 namespace Overbooking.Compartilhado.Interfaces
 {
-    public interface IDataDeSaida : IProbabilidadeDeComparecimento
+    public interface IDataDeSaida : IParametroIndependente
     {
         DateTime Data { get; set; }
     }

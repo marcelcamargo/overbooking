@@ -1,6 +1,6 @@
 ﻿namespace Overbooking.Compartilhado.Interfaces
 {
-    public interface IIdadeDoPassageiro : IProbabilidadeDeComparecimento
+    public interface IIdadeDoPassageiro : IParametroIndependente
     {
         int Idade { get; set; }
     }

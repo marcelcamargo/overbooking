@@ -1,11 +1,12 @@
-﻿using Overbooking.Dados.Interfaces;
+﻿using Overbooking.Compartilhado.Interfaces;
+using Overbooking.Dados.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Overbooking.Dados.Implementacoes
 {
-    public class RepositorioEmMemoria<T> : IRepositorio<T> where T : class
+    public class RepositorioEmMemoria<T> : IRepositorio<T> where T : IParametroIndependente
     {
         private IList<T> _listaDeEntidades;
 
@@ -20,7 +21,7 @@ namespace Overbooking.Dados.Implementacoes
         }
 
         public void Atualize(T entidade)
-        {
+        {            
             Remova(entidade);
             Adicione(entidade);
         }
@@ -36,7 +37,7 @@ namespace Overbooking.Dados.Implementacoes
         }
 
         public void Remova(T entidade)
-        {
+        {            
             _listaDeEntidades.Remove(entidade);
         }
     }

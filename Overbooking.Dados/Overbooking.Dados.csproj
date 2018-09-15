@@ -45,6 +45,11 @@
     <Compile Include="Interfaces\IRepositorio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Overbooking.Compartilhado\Overbooking.Compartilhado.csproj">
+      <Project>{c2dd5d40-cf5c-49d4-a8cc-ea72894202a5}</Project>
+      <Name>Overbooking.Compartilhado</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

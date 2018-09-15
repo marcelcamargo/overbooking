@@ -42,11 +42,11 @@
   <ItemGroup>
     <Compile Include="Implementacoes\DataDeSaida.cs" />
     <Compile Include="Implementacoes\IdadeDoPassageiro.cs" />
-    <Compile Include="Implementacoes\ProbabilidadeDeComparecimento.cs" />
+    <Compile Include="Implementacoes\ParametroIndependente.cs" />
     <Compile Include="Implementacoes\Rota.cs" />
     <Compile Include="Interfaces\IDataDeSaida.cs" />
     <Compile Include="Interfaces\IIdadeDoPassageiro.cs" />
-    <Compile Include="Interfaces\IProbabilidadeDeComparecimento.cs" />
+    <Compile Include="Interfaces\IParametroIndependente.cs" />
     <Compile Include="Interfaces\IRota.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -2,7 +2,7 @@
 
 namespace Overbooking.Compartilhado.Implementacoes
 {
-    public class IdadeDoPassageiro : ProbabilidadeDeComparecimento, IIdadeDoPassageiro
+    public class IdadeDoPassageiro : ParametroIndependente, IIdadeDoPassageiro
     {
         public int Idade { get; set; }
     }

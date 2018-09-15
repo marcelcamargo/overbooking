@@ -2,7 +2,7 @@
 
 namespace Overbooking.Compartilhado.Implementacoes
 {
-    public class Rota : ProbabilidadeDeComparecimento, IRota
+    public class Rota : ParametroIndependente, IRota
     {
         public string Origem { get; set ; }
         public string Destino { get ; set; }
