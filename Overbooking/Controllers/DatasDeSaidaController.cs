@@ -2,25 +2,16 @@
 using Overbooking.Compartilhado.Interfaces;
 using Overbooking.Models;
 using Overbooking.Negocio.Fabricas;
-using Overbooking.Negocio.Interfaces;
 using System;
 using System.Web.Mvc;
 
 namespace Overbooking.Controllers
 {
-    public class DatasDeSaidaController : ControladorPadrao
+    public class DatasDeSaidaController : ControladorPadraoParametroIndependente<IDataDeSaida>
     {
-        private IServicoDeDataDeSaida _servicoDeDataDeSaida;
-
         public DatasDeSaidaController()
         {
-            _servicoDeDataDeSaida = FabricaDeServicos.FabricaDeServicoDeDataDeSaida.Crie();
-        }
-
-        public ActionResult Index()
-        {
-            ViewBag.ItensCadastrados = ObtenhaItensParaApresentacao(_servicoDeDataDeSaida.ObtenhaTodos());
-            return View();
+            _servicoGenerico = FabricaDeServicos.FabricaDeServicoDeDataDeSaida.Crie();
         }
 
         [HttpPost]
@@ -30,7 +21,7 @@ namespace Overbooking.Controllers
             {
                 var dataDeSaida = CrieDataDeSaida(dataDeSaidaView);
 
-                _servicoDeDataDeSaida.Adicione(dataDeSaida);
+                _servicoGenerico.Adicione(dataDeSaida);
 
                 return RedirectToAction("Index");
             }

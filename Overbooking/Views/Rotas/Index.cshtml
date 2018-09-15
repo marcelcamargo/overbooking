@@ -1,0 +1,46 @@
+﻿@using Overbooking.Models
+
+@model RotaModel
+
+@{
+    ViewBag.Title = "PI - Rota";
+}
+
+<div class="container">
+    <h1 class="page-header titulo">PI - Rota</h1>
+
+    @using (Html.BeginForm("Cadastrar", "Rotas", FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <label for="Data" class="control-label col-xs-2">Origem</label>
+            <div class="col-xs-10">
+                <input type="text" value="@(Model?.Origem)" maxlength="3" class="form-control" id="Origem" name="Origem" placeholder="Origem">
+                @Html.ValidationMessageFor(model => model.Origem)
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Data" class="control-label col-xs-2">Destino</label>
+            <div class="col-xs-10">
+                <input type="text" value="@(Model?.Destino)" maxlength="3" class="form-control" id="Destino" name="Destino" placeholder="Destino">
+                @Html.ValidationMessageFor(model => model.Destino)
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="ProbabilidadeDeComparecimento" class="control-label col-xs-2">PI</label>
+            <div class="col-xs-10">
+                <input type="number" value="@(Model?.ProbabilidadeDeComparecimento)" min="0" max="100" class="form-control" id="ProbabilidadeDeComparecimento" name="ProbabilidadeDeComparecimento" placeholder="PI">
+                @Html.ValidationMessageFor(model => model.ProbabilidadeDeComparecimento)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-offset-2 col-xs-10">
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </div>
+        </div>
+    }
+
+
+    @Html.Partial("_Pic")
+</div>

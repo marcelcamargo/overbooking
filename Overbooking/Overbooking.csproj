@@ -151,11 +151,13 @@
     <Compile Include="Controllers\DatasDeSaidaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ControladorPadrao.cs" />
+    <Compile Include="Controllers\RotasController.cs" />
     <Compile Include="Controllers\IdadesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ApresentacaoPicModel.cs" />
+    <Compile Include="Models\RotaModel.cs" />
     <Compile Include="Models\IdadeDoPassageiroModel.cs" />
     <Compile Include="Models\DataDeSaidaModel.cs" />
     <Compile Include="Models\ParametroIndependenteModel.cs" />
@@ -169,7 +171,7 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -205,6 +207,7 @@
     <Content Include="Views\DatasDeSaida\Index.cshtml" />
     <Content Include="Views\Shared\_Pic.cshtml" />
     <Content Include="Views\Idades\Index.cshtml" />
+    <Content Include="Views\Rotas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

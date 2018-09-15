@@ -2,25 +2,16 @@
 using Overbooking.Compartilhado.Interfaces;
 using Overbooking.Models;
 using Overbooking.Negocio.Fabricas;
-using Overbooking.Negocio.Interfaces;
 using System;
 using System.Web.Mvc;
 
 namespace Overbooking.Controllers
 {
-    public class IdadesController : ControladorPadrao
+    public class IdadesController : ControladorPadraoParametroIndependente<IIdadeDoPassageiro>
     {
-        private IServicoDeIdade _servicoDeIdade;
-
         public IdadesController()
         {
-            _servicoDeIdade = FabricaDeServicos.FabricaDeServicoDeIdade.Crie();
-        }
-
-        public ActionResult Index()
-        {
-            ViewBag.ItensCadastrados = ObtenhaItensParaApresentacao(_servicoDeIdade.ObtenhaTodos());
-            return View();
+            _servicoGenerico = FabricaDeServicos.FabricaDeServicoDeIdade.Crie();
         }
 
         [HttpPost]
@@ -30,7 +21,7 @@ namespace Overbooking.Controllers
             {
                 var idadeDoPassageiro = CrieIdadeDoPassageiro(idadeDoPassageiroView);
 
-                _servicoDeIdade.Adicione(idadeDoPassageiro);
+                _servicoGenerico.Adicione(idadeDoPassageiro);
 
                 return RedirectToAction("Index");
             }

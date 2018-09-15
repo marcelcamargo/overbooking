@@ -41,9 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Fabricas\FabricaDeServicos.cs" />
+    <Compile Include="Implementacoes\ServicoDeRota.cs" />
     <Compile Include="Implementacoes\ServicoDeIdade.cs" />
     <Compile Include="Implementacoes\ServicoGenerico.cs" />
     <Compile Include="Implementacoes\ServicoDeDataDeSaida.cs" />
+    <Compile Include="Interfaces\IServicoDeRota.cs" />
     <Compile Include="Interfaces\IServicoDeIdade.cs" />
     <Compile Include="Interfaces\IServicoGenerico.cs" />
     <Compile Include="Interfaces\IServicoDeDataDeSaida.cs" />

@@ -22,5 +22,13 @@ namespace Overbooking.Negocio.Fabricas
                 return new ServicoDeIdade(FabricaDeRepositorio<IIdadeDoPassageiro>.ObtenhaRepositorio());
             }
         }
+
+        public static class FabricaDeServicoDeRota
+        {
+            public static IServicoDeRota Crie()
+            {
+                return new ServicoDeRota(FabricaDeRepositorio<IRota>.ObtenhaRepositorio());
+            }
+        }
     }
 }
