@@ -9,6 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Overbooking.Tests", "Overbo
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{CEE25073-5778-4626-9C71-15E0CE53EBD3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Overbooking.Negocio", "Overbooking.Negocio\Overbooking.Negocio.csproj", "{F1B0579E-876B-4CFE-98A8-CE2AB87DA7C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Overbooking.Dados", "Overbooking.Dados\Overbooking.Dados.csproj", "{2DDD1189-B056-46AD-B102-CDA5B4D65C5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Overbooking.Compartilhado", "Overbooking.Compartilhado\Overbooking.Compartilhado.csproj", "{C2DD5D40-CF5C-49D4-A8CC-EA72894202A5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +33,18 @@ Global
 		{CEE25073-5778-4626-9C71-15E0CE53EBD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CEE25073-5778-4626-9C71-15E0CE53EBD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CEE25073-5778-4626-9C71-15E0CE53EBD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1B0579E-876B-4CFE-98A8-CE2AB87DA7C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1B0579E-876B-4CFE-98A8-CE2AB87DA7C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1B0579E-876B-4CFE-98A8-CE2AB87DA7C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1B0579E-876B-4CFE-98A8-CE2AB87DA7C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DDD1189-B056-46AD-B102-CDA5B4D65C5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DDD1189-B056-46AD-B102-CDA5B4D65C5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DDD1189-B056-46AD-B102-CDA5B4D65C5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DDD1189-B056-46AD-B102-CDA5B4D65C5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2DD5D40-CF5C-49D4-A8CC-EA72894202A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2DD5D40-CF5C-49D4-A8CC-EA72894202A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2DD5D40-CF5C-49D4-A8CC-EA72894202A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2DD5D40-CF5C-49D4-A8CC-EA72894202A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

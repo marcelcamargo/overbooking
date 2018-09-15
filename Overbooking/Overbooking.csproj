@@ -215,6 +215,16 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Overbooking.Compartilhado\Overbooking.Compartilhado.csproj">
+      <Project>{c2dd5d40-cf5c-49d4-a8cc-ea72894202a5}</Project>
+      <Name>Overbooking.Compartilhado</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Overbooking.Negocio\Overbooking.Negocio.csproj">
+      <Project>{f1b0579e-876b-4cfe-98a8-ce2ab87da7c9}</Project>
+      <Name>Overbooking.Negocio</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
