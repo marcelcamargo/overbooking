@@ -40,6 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Fabricas\FabricaDeServicoDeDataDeSaida.cs" />
+    <Compile Include="Implementacoes\ServicoDeDataDeSaida.cs" />
+    <Compile Include="Interfaces\IServicoDeDataDeSaida.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
