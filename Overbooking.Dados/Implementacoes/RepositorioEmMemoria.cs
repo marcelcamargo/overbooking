@@ -1,5 +1,4 @@
 ﻿using Overbooking.Dados.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -14,20 +13,9 @@ namespace Overbooking.Dados.Implementacoes
             _listaDeEntidades = new List<T>();
         }
 
-        public void Adicione(T entidade)
+        public IEnumerable<T> ObtenhaTodos()
         {
-            _listaDeEntidades.Add(entidade);
-        }
-
-        public void Atualize(T entidade)
-        {            
-            Remova(entidade);
-            Adicione(entidade);
-        }
-
-        public IEnumerable<T> Obtenha(Func<T, bool> expressao)
-        {
-            return _listaDeEntidades.Where(expressao);
+            return _listaDeEntidades;
         }
 
         public T Obtenha(T entidade)
@@ -35,14 +23,10 @@ namespace Overbooking.Dados.Implementacoes
             return _listaDeEntidades.FirstOrDefault(x => x.Equals(entidade));
         }
 
-        public IEnumerable<T> ObtenhaTodos()
+        public void Adicione(T entidade)
         {
-            return _listaDeEntidades;
+            _listaDeEntidades.Add(entidade);
         }
 
-        public void Remova(T entidade)
-        {            
-            _listaDeEntidades.Remove(entidade);
-        }
     }
 }

@@ -30,19 +30,19 @@ namespace Overbooking.Negocio.Implementacoes
         {
             var listaVoos = new List<IVoo>();
 
-            var agrupados = ObtenhaTodosPassageiros().GroupBy(x => new { x.Rota.Origem, x.Rota.Destino, x.DataDeSaida.Data });
+            var passageirosAgrupadosPorVoo = ObtenhaTodosPassageiros().GroupBy(x => new { x.Rota.Origem, x.Rota.Destino, x.DataDeSaida.Data });
 
-            foreach (var grupo in agrupados)
+            foreach (var vooAgrupado in passageirosAgrupadosPorVoo)
             {
                 var voo = new Voo()
                 {
-                    Rota = new Rota() { Origem = grupo.Key.Origem, Destino = grupo.Key.Destino },
-                    DataDeSaida = new DataDeSaida() { Data = grupo.Key.Data }
+                    Rota = new Rota() { Origem = vooAgrupado.Key.Origem, Destino = vooAgrupado.Key.Destino },
+                    DataDeSaida = new DataDeSaida() { Data = vooAgrupado.Key.Data }
                 };
 
-                foreach (var item in grupo)
+                foreach (var passageiroNoVoo in vooAgrupado)
                 {
-                    voo.Passageiros.Add(new Passageiro() { Nome = item.Nome, IdadePassageiro = item.IdadePassageiro });
+                    voo.Passageiros.Add(new Passageiro() { Nome = passageiroNoVoo.Nome, IdadePassageiro = passageiroNoVoo.IdadePassageiro });
                 }
 
                 voo.RiscoDeOverbooking = CalculadoraDeRisco.CalculeProbabilidadeDeComparecimento(voo);
