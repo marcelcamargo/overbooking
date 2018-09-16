@@ -11,12 +11,17 @@ namespace Overbooking.Compartilhado.Implementacoes
         public IDataDeSaida DataDeSaida { get; set; }
         public IList<IPassageiro> Passageiros { get; set; }
         public decimal RiscoDeOverbooking { get; set; }
-
         public int CapacidadePassageiros => CAPACIDADE_MAXIMA;
 
         public Voo()
         {
             Passageiros = new List<IPassageiro>();
+        }
+
+        public Voo(IRota rota, IDataDeSaida data)
+        {
+            Rota = rota;
+            DataDeSaida = data;
         }
     }
 }

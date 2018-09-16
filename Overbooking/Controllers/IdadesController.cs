@@ -1,4 +1,4 @@
-﻿using Overbooking.Compartilhado.Implementacoes;
+﻿using Overbooking.Compartilhado.Fabricas;
 using Overbooking.Compartilhado.Interfaces;
 using Overbooking.Models;
 using Overbooking.Negocio.Fabricas;
@@ -14,29 +14,19 @@ namespace Overbooking.Controllers
         }
 
         [HttpPost]
-        public ActionResult Cadastrar(IdadeDoPassageiroModel idadeDoPassageiroView)
+        public ActionResult Cadastrar(IdadeDoPassageiroModel model)
         {
             if (ModelState.IsValid)
             {
-                var idadeDoPassageiro = CrieIdadeDoPassageiro(idadeDoPassageiroView);
+                var idadeDoPassageiro = FabricaDeIdadeDoPassageiro.Crie(model.Idade.Value, model.ProbabilidadeDeComparecimento.Value);
 
                 _servicoGenerico.Adicione(idadeDoPassageiro);
 
                 return RedirectToAction("Index");
             }
 
-            return View("Index", idadeDoPassageiroView);
+            return View("Index", model);
         }
 
-        private IIdadeDoPassageiro CrieIdadeDoPassageiro(IdadeDoPassageiroModel idadeDoPassageiroModel)
-        {
-            var idadeDoPassageiro = new IdadeDoPassageiro
-            {
-                Idade = idadeDoPassageiroModel.Idade.Value,
-                ProbabilidadeDeComparecimento = idadeDoPassageiroModel.ProbabilidadeDeComparecimento.Value
-            };
-
-            return idadeDoPassageiro;
-        }
     }
 }

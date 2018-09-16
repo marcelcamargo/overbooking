@@ -1,5 +1,4 @@
-﻿using Overbooking.Compartilhado.Implementacoes;
-using Overbooking.Compartilhado.Interfaces;
+﻿using Overbooking.Compartilhado.Fabricas;
 using Overbooking.Models;
 using Overbooking.Negocio.Fabricas;
 using Overbooking.Negocio.Interfaces;
@@ -29,32 +28,21 @@ namespace Overbooking.Controllers
         }
 
         [HttpPost]
-        public ActionResult Adicionar(PassageiroVooModel passageiroVooView)
-        {            
+        public ActionResult Adicionar(PassageiroVooModel model)
+        {
             if (ModelState.IsValid)
             {
-                var passageiroVoo = CriePassageiroVoo(passageiroVooView);
+                var passageiroVoo = FabricaDePassageiroVoo.Crie(model.Nome, 
+                                                                FabricaDeIdadeDoPassageiro.Crie(model.Idade.Value),
+                                                                FabricaDeRota.Crie(model.Origem, model.Destino), 
+                                                                FabricaDeDataDeSaida.Crie(model.Data.Value));
 
                 _servicoDeVoo.AdicionePassageiro(passageiroVoo);
-                
+
                 return RetorneViewIndex(null);
             }
-            
-            return RetorneViewIndex(passageiroVooView);
-        }
 
-        private IPassageiroVoo CriePassageiroVoo(PassageiroVooModel model)
-        {
-            var passageiroVoo = new PassageiroVoo
-            {
-                Nome = model.Nome,
-                IdadePassageiro = new IdadeDoPassageiro() { Idade = model.Idade.Value },
-                Rota = new Rota() { Origem = model.Origem, Destino = model.Destino },
-                DataDeSaida = new DataDeSaida() { Data = model.Data.Value }
-
-            };
-
-            return passageiroVoo;
+            return RetorneViewIndex(model);
         }
 
     }

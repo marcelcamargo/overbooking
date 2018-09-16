@@ -6,5 +6,11 @@ namespace Overbooking.Compartilhado.Implementacoes
     {
         public string Nome { get; set; }
         public IIdadeDoPassageiro IdadePassageiro { get; set; }
+
+        public Passageiro(string nome, IIdadeDoPassageiro idadePassageiro)
+        {
+            Nome = nome;
+            IdadePassageiro = idadePassageiro;
+        }
     }
 }

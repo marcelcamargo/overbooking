@@ -1,4 +1,4 @@
-﻿using Overbooking.Compartilhado.Implementacoes;
+﻿using Overbooking.Compartilhado.Fabricas;
 using Overbooking.Compartilhado.Interfaces;
 using Overbooking.Models;
 using Overbooking.Negocio.Fabricas;
@@ -14,30 +14,18 @@ namespace Overbooking.Controllers
         }
 
         [HttpPost]
-        public ActionResult Cadastrar(DataDeSaidaModel dataDeSaidaView)
+        public ActionResult Cadastrar(DataDeSaidaModel model)
         {
             if (ModelState.IsValid)
             {
-                var dataDeSaida = CrieDataDeSaida(dataDeSaidaView);
+                var dataDeSaida = FabricaDeDataDeSaida.Crie(model.Data.Value, model.ProbabilidadeDeComparecimento.Value);
 
                 _servicoGenerico.Adicione(dataDeSaida);
 
                 return RedirectToAction("Index");
             }
 
-            return View("Index", dataDeSaidaView);
+            return View("Index", model);
         }
-
-        private IDataDeSaida CrieDataDeSaida(DataDeSaidaModel dataDeSaidaModel)
-        {
-            var dataDeSaida = new DataDeSaida
-            {
-                Data = dataDeSaidaModel.Data.Value,
-                ProbabilidadeDeComparecimento = dataDeSaidaModel.ProbabilidadeDeComparecimento.Value
-            };
-
-            return dataDeSaida;
-        }
-
     }
 }

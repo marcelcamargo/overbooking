@@ -7,6 +7,10 @@ namespace Overbooking.Compartilhado.Implementacoes
         public IRota Rota { get; set; }
         public IDataDeSaida DataDeSaida { get; set; }
 
-        public string Identificador => $"{Rota.ToString()}_{DataDeSaida.ToString()}".Replace(" ", "_");
+        public PassageiroVoo(string nome, IIdadeDoPassageiro idade, IRota rota, IDataDeSaida dataDeSaida) : base(nome, idade)
+        {
+            Rota = rota;
+            DataDeSaida = dataDeSaida;
+        }
     }
 }

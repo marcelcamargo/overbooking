@@ -7,6 +7,17 @@ namespace Overbooking.Compartilhado.Implementacoes
         public string Origem { get; set ; }
         public string Destino { get ; set; }
 
+        public Rota(string origem, string destino)
+        {
+            Origem = origem;
+            Destino = destino;
+        }
+
+        public Rota(string origem, string destino, int pi) : this(origem, destino)
+        {
+            ProbabilidadeDeComparecimento = pi;
+        }
+
         public override string ToString()
         {
             return $"{Origem} - {Destino}";
@@ -15,6 +26,11 @@ namespace Overbooking.Compartilhado.Implementacoes
         public override bool Equals(object obj)
         {
             return (obj as Rota)?.ToString() == ToString();
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }

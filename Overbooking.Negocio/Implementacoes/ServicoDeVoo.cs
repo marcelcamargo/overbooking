@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using Overbooking.Compartilhado.Fabricas;
 using Overbooking.Compartilhado.Interfaces;
 using Overbooking.Dados.Interfaces;
 using Overbooking.Negocio.Interfaces;
+using System.Collections.Generic;
 using System.Linq;
-using Overbooking.Compartilhado.Implementacoes;
 
 namespace Overbooking.Negocio.Implementacoes
 {
@@ -28,29 +28,24 @@ namespace Overbooking.Negocio.Implementacoes
 
         public IEnumerable<IVoo> ObtenhaTodosVoos()
         {
-            var listaVoos = new List<IVoo>();
-
             var passageirosAgrupadosPorVoo = ObtenhaTodosPassageiros().GroupBy(x => new { x.Rota.Origem, x.Rota.Destino, x.DataDeSaida.Data });
 
-            foreach (var vooAgrupado in passageirosAgrupadosPorVoo)
+            foreach (var passageirosPorVoo in passageirosAgrupadosPorVoo)
             {
-                var voo = new Voo()
-                {
-                    Rota = new Rota() { Origem = vooAgrupado.Key.Origem, Destino = vooAgrupado.Key.Destino },
-                    DataDeSaida = new DataDeSaida() { Data = vooAgrupado.Key.Data }
-                };
-
-                foreach (var passageiroNoVoo in vooAgrupado)
-                {
-                    voo.Passageiros.Add(new Passageiro() { Nome = passageiroNoVoo.Nome, IdadePassageiro = passageiroNoVoo.IdadePassageiro });
-                }
-
-                voo.RiscoDeOverbooking = CalculadoraDeRisco.CalculeProbabilidadeDeComparecimento(voo);
-
-                listaVoos.Add(voo);
+                yield return CrieVoo(passageirosPorVoo);
             }
+        }
 
-            return listaVoos;
+        private IVoo CrieVoo(IGrouping<dynamic, IPassageiro> passageirosPorVoo)
+        {
+            IVoo voo = FabricaDeVoo.Crie(FabricaDeRota.Crie(passageirosPorVoo.Key.Origem, passageirosPorVoo.Key.Destino),
+                                         FabricaDeDataDeSaida.Crie(passageirosPorVoo.Key.Data));
+
+            voo.Passageiros = passageirosPorVoo.ToList();
+
+            voo.RiscoDeOverbooking = CalculadoraDeRisco.CalculeProbabilidadeDeComparecimento(voo);
+
+            return voo;
         }
     }
 }

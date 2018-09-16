@@ -1,4 +1,4 @@
-﻿using Overbooking.Compartilhado.Implementacoes;
+﻿using Overbooking.Compartilhado.Fabricas;
 using Overbooking.Compartilhado.Interfaces;
 using Overbooking.Models;
 using Overbooking.Negocio.Fabricas;
@@ -14,30 +14,18 @@ namespace Overbooking.Controllers
         }
 
         [HttpPost]
-        public ActionResult Cadastrar(RotaModel rotaView)
+        public ActionResult Cadastrar(RotaModel model)
         {
             if (ModelState.IsValid)
             {
-                var rota = CrieRota(rotaView);
+                var rota = FabricaDeRota.Crie(model.Origem, model.Destino, model.ProbabilidadeDeComparecimento.Value);
 
                 _servicoGenerico.Adicione(rota);
 
                 return RetorneViewIndex(null);
             }
 
-            return RetorneViewIndex(rotaView);
-        }
-
-        private IRota CrieRota(RotaModel rotaModel)
-        {
-            var rota = new Rota
-            {
-                Origem = rotaModel.Origem,
-                Destino = rotaModel.Destino,
-                ProbabilidadeDeComparecimento = rotaModel.ProbabilidadeDeComparecimento.Value
-            };
-
-            return rota;
+            return RetorneViewIndex(model);
         }
     }
 }

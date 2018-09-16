@@ -40,6 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Fabricas\FabricaDeIdadeDoPassageiro.cs" />
+    <Compile Include="Fabricas\FabricaDeDataDeSaida.cs" />
+    <Compile Include="Fabricas\FabricaDePassageiroVoo.cs" />
+    <Compile Include="Fabricas\FabricaDePassageiro.cs" />
+    <Compile Include="Fabricas\FabricaDeRota.cs" />
+    <Compile Include="Fabricas\FabricaDeVoo.cs" />
     <Compile Include="Implementacoes\DataDeSaida.cs" />
     <Compile Include="Implementacoes\Passageiro.cs" />
     <Compile Include="Implementacoes\PassageiroVoo.cs" />
