@@ -8,9 +8,9 @@ namespace Overbooking.Negocio.Implementacoes
     {
         protected abstract IRepositorio<T> Repositorio { get; }
 
-        public void Adicione(T entidade)
+        public void Salve(T entidade)
         {
-            Repositorio.Adicione(entidade);
+            Repositorio.Salve(entidade);
         }
 
         public IEnumerable<T> ObtenhaTodos()

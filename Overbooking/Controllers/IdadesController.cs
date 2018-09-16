@@ -15,7 +15,7 @@ namespace Overbooking.Controllers
         }
 
         [HttpPost]
-        public ActionResult Cadastrar(IdadeDoPassageiroModel model)
+        public ActionResult Salvar(IdadeDoPassageiroModel model)
         {
             if (ModelState.IsValid)
             {
@@ -23,7 +23,7 @@ namespace Overbooking.Controllers
                 {
                     var idadeDoPassageiro = FabricaDeIdadeDoPassageiro.Crie(model.Idade.Value, model.ProbabilidadeDeComparecimento.Value);
 
-                    _servicoGenerico.Adicione(idadeDoPassageiro);
+                    _servicoGenerico.Salve(idadeDoPassageiro);
 
                     return RetorneViewIndex(null);
                 }

@@ -6,6 +6,6 @@ namespace Overbooking.Dados.Interfaces
     {
         IEnumerable<T> ObtenhaTodos();
         T Obtenha(T entidade);
-        void Adicione(T entidade);
+        void Salve(T entidade);
     }
 }

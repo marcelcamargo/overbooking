@@ -28,7 +28,7 @@ namespace Overbooking.Negocio.Implementacoes
                 throw new Exception($"A capacidade máxima de {CAPACIDADE_MAXIMA_PADRAO} passageiros do vôo [{passageiroVoo.Rota} as {passageiroVoo.DataDeSaida}] foi atingida.");
             }
 
-            _repositorio.Adicione(passageiroVoo);
+            _repositorio.Salve(passageiroVoo);
         }
 
         public IEnumerable<IPassageiroVoo> ObtenhaTodosPassageiros()

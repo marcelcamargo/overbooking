@@ -23,10 +23,10 @@ namespace Overbooking.Dados.Implementacoes
             return _listaDeEntidades.FirstOrDefault(x => x.Equals(entidade));
         }
 
-        public void Adicione(T entidade)
+        public void Salve(T entidade)
         {
+            _listaDeEntidades.Remove(entidade);
             _listaDeEntidades.Add(entidade);
         }
-
     }
 }

@@ -15,7 +15,7 @@ namespace Overbooking.Controllers
         }
 
         [HttpPost]
-        public ActionResult Cadastrar(RotaModel model)
+        public ActionResult Salvar(RotaModel model)
         {
             if (ModelState.IsValid)
             {
@@ -23,7 +23,7 @@ namespace Overbooking.Controllers
                 {
                     var rota = FabricaDeRota.Crie(model.Origem, model.Destino, model.ProbabilidadeDeComparecimento.Value);
 
-                    _servicoGenerico.Adicione(rota);
+                    _servicoGenerico.Salve(rota);
 
                     return RetorneViewIndex(null);
                 }

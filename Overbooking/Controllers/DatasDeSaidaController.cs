@@ -15,7 +15,7 @@ namespace Overbooking.Controllers
         }
 
         [HttpPost]
-        public ActionResult Cadastrar(DataDeSaidaModel model)
+        public ActionResult Salvar(DataDeSaidaModel model)
         {
             if (ModelState.IsValid)
             {
@@ -23,7 +23,7 @@ namespace Overbooking.Controllers
                 {
                     var dataDeSaida = FabricaDeDataDeSaida.Crie(model.Data.Value, model.ProbabilidadeDeComparecimento.Value);
 
-                    _servicoGenerico.Adicione(dataDeSaida);
+                    _servicoGenerico.Salve(dataDeSaida);
 
                     return RetorneViewIndex(null);
                 }
