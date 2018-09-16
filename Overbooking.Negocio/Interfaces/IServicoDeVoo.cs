@@ -8,5 +8,6 @@ namespace Overbooking.Negocio.Interfaces
         void AdicionePassageiro(IPassageiroVoo passageiroVoo);
         IEnumerable<IPassageiroVoo> ObtenhaTodosPassageiros();
         IEnumerable<IVoo> ObtenhaTodosVoos();
+        int ObtenhaQtdLimiteDePassageirosPadrao();
     }
 }

@@ -31,6 +31,8 @@ namespace Overbooking.Negocio.Implementacoes
             _repositorio.Salve(passageiroVoo);
         }
 
+        public int ObtenhaQtdLimiteDePassageirosPadrao() => CAPACIDADE_MAXIMA_PADRAO;
+
         public IEnumerable<IPassageiroVoo> ObtenhaTodosPassageiros()
         {
             return _repositorio.ObtenhaTodos();

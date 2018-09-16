@@ -90,7 +90,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Controllers\HomeControllerTest.cs" />
+    <Compile Include="Servicos\ServicoDeVooTest.cs" />
+    <Compile Include="Servicos\ServicoDeRotaTest.cs" />
+    <Compile Include="Servicos\ServicoDeIdadeTest.cs" />
+    <Compile Include="Servicos\ServicoDeDataDeSaidaTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
@@ -99,8 +102,16 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Overbooking.Compartilhado\Overbooking.Compartilhado.csproj">
+      <Project>{c2dd5d40-cf5c-49d4-a8cc-ea72894202a5}</Project>
+      <Name>Overbooking.Compartilhado</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Overbooking.Negocio\Overbooking.Negocio.csproj">
+      <Project>{f1b0579e-876b-4cfe-98a8-ce2ab87da7c9}</Project>
+      <Name>Overbooking.Negocio</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Overbooking\Overbooking.csproj">
-      <Project>{9EC72F15-011E-4E05-9680-48885DA2286A}</Project>
+      <Project>{9ec72f15-011e-4e05-9680-48885da2286a}</Project>
       <Name>Overbooking</Name>
     </ProjectReference>
   </ItemGroup>
