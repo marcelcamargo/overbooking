@@ -1,12 +1,11 @@
-﻿using Overbooking.Compartilhado.Interfaces;
-using Overbooking.Dados.Implementacoes;
+﻿using Overbooking.Dados.Implementacoes;
 using Overbooking.Dados.Interfaces;
 using System;
 using System.Collections.Generic;
 
 namespace Overbooking.Dados.Fabricas
 {
-    public class FabricaDeRepositorio<T> where T : IParametroIndependente
+    public class FabricaDeRepositorio<T> where T : class
     {
         private static Dictionary<Type, IRepositorio<T>> _dicionarioDeRepositorios = new Dictionary<Type, IRepositorio<T>>();
 

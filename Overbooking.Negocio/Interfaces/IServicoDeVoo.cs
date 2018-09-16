@@ -2,7 +2,7 @@
 
 namespace Overbooking.Negocio.Interfaces
 {
-    public interface IServicoDeIdade : IServicoGenericoDeParametroIndependente<IIdadeDoPassageiro>
+    public interface IServicoDeVoo : IServicoGenericoDeParametroIndependente<IVoo>
     {
     }
 }

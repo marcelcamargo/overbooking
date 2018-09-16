@@ -4,7 +4,7 @@ using Overbooking.Negocio.Interfaces;
 
 namespace Overbooking.Negocio.Implementacoes
 {
-    public class ServicoDeDataDeSaida : ServicoGenerico<IDataDeSaida>, IServicoDeDataDeSaida
+    public class ServicoDeDataDeSaida : ServicoGenericoDeParametroIndependente<IDataDeSaida>, IServicoDeDataDeSaida
     {
         private IRepositorio<IDataDeSaida> _repositorio;
 

@@ -2,7 +2,7 @@
 
 namespace Overbooking.Negocio.Interfaces
 {
-    public interface IServicoDeDataDeSaida : IServicoGenerico<IDataDeSaida>
+    public interface IServicoDeDataDeSaida : IServicoGenericoDeParametroIndependente<IDataDeSaida>
     {
     }
 }

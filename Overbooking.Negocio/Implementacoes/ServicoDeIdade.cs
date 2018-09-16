@@ -4,7 +4,7 @@ using Overbooking.Negocio.Interfaces;
 
 namespace Overbooking.Negocio.Implementacoes
 {
-    public class ServicoDeIdade : ServicoGenerico<IIdadeDoPassageiro>, IServicoDeIdade
+    public class ServicoDeIdade : ServicoGenericoDeParametroIndependente<IIdadeDoPassageiro>, IServicoDeIdade
     {
         private IRepositorio<IIdadeDoPassageiro> _repositorio;
 

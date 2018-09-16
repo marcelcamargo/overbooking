@@ -7,9 +7,9 @@ using System.Web.Mvc;
 
 namespace Overbooking.Controllers
 {
-    public class ControladorPadraoParametroIndependente<T> : Controller  where T : IParametroIndependente
+    public class ControladorPadraoParametroIndependente<T> : Controller  where T : class
     {
-        protected IServicoGenerico<T> _servicoGenerico;
+        protected IServicoGenericoDeParametroIndependente<T> _servicoGenerico;
 
         public ActionResult Index()
         {
@@ -25,7 +25,7 @@ namespace Overbooking.Controllers
 
         protected IEnumerable<ApresentacaoPicModel> ObtenhaItensParaApresentacao(IEnumerable<T> listaPic)
         {
-            return from pic in listaPic
+            return from IParametroIndependente pic in listaPic
                    select new ApresentacaoPicModel()
                    {
                        Parametro = pic.ToString(),

@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Overbooking.Dados.Implementacoes
 {
-    public class RepositorioEmMemoria<T> : IRepositorio<T> where T : IParametroIndependente
+    public class RepositorioEmMemoria<T> : IRepositorio<T> where T : class
     {
         private IList<T> _listaDeEntidades;
 
