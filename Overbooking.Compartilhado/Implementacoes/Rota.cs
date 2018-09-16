@@ -11,5 +11,10 @@ namespace Overbooking.Compartilhado.Implementacoes
         {
             return $"{Origem} - {Destino}";
         }
+
+        public override bool Equals(object obj)
+        {
+            return (obj as Rota)?.ToString() == ToString();
+        }
     }
 }

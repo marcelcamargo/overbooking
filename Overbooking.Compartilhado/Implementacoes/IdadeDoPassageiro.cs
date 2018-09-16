@@ -10,5 +10,10 @@ namespace Overbooking.Compartilhado.Implementacoes
         {
             return Idade.ToString();
         }
+
+        public override bool Equals(object obj)
+        {
+            return (obj as IdadeDoPassageiro)?.ToString() == ToString();
+        }
     }
 }

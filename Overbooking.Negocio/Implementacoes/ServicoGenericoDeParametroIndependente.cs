@@ -4,18 +4,23 @@ using System.Collections.Generic;
 
 namespace Overbooking.Negocio.Implementacoes
 {
-    public abstract class ServicoGenericoDeParametroIndependente<T> : IServicoGenericoDeParametroIndependente<T> where T : class
+    internal abstract class ServicoGenericoDeParametroIndependente<T> : IServicoGenericoDeParametroIndependente<T> where T : class
     {
         protected abstract IRepositorio<T> Repositorio { get; }
 
-        public void Adicione(T pi)
+        public void Adicione(T entidade)
         {
-            Repositorio.Adicione(pi);
+            Repositorio.Adicione(entidade);
         }
 
         public IEnumerable<T> ObtenhaTodos()
         {
             return Repositorio.ObtenhaTodos();
+        }
+
+        public T Obtenha(T entidade)
+        {
+            return Repositorio.Obtenha(entidade);
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Overbooking.Tests.Controllers
         public void Index()
         {
             // Arrange
-            HomeController controller = new HomeController();
+            VoosController controller = new VoosController();
 
             // Act
             ViewResult result = controller.Index() as ViewResult;

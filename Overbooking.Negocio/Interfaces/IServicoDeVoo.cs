@@ -1,5 +1,4 @@
 ﻿using Overbooking.Compartilhado.Interfaces;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace Overbooking.Negocio.Interfaces
@@ -8,5 +7,6 @@ namespace Overbooking.Negocio.Interfaces
     {
         void AdicionePassageiro(IPassageiroVoo passageiroVoo);
         IEnumerable<IPassageiroVoo> ObtenhaTodosPassageiros();
+        IEnumerable<IVoo> ObtenhaTodosVoos();
     }
 }

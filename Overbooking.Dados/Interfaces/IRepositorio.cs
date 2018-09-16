@@ -7,6 +7,7 @@ namespace Overbooking.Dados.Interfaces
     {
         IEnumerable<T> ObtenhaTodos();
         IEnumerable<T> Obtenha(Func<T, bool> expressao);
+        T Obtenha(T entidade);
         void Adicione(T entidade);
         void Atualize(T entidade);
         void Remova(T entidade);

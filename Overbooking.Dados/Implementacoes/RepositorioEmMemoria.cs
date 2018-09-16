@@ -1,12 +1,11 @@
-﻿using Overbooking.Compartilhado.Interfaces;
-using Overbooking.Dados.Interfaces;
+﻿using Overbooking.Dados.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Overbooking.Dados.Implementacoes
 {
-    public class RepositorioEmMemoria<T> : IRepositorio<T> where T : class
+    internal class RepositorioEmMemoria<T> : IRepositorio<T> where T : class
     {
         private IList<T> _listaDeEntidades;
 
@@ -29,6 +28,11 @@ namespace Overbooking.Dados.Implementacoes
         public IEnumerable<T> Obtenha(Func<T, bool> expressao)
         {
             return _listaDeEntidades.Where(expressao);
+        }
+
+        public T Obtenha(T entidade)
+        {
+            return _listaDeEntidades.FirstOrDefault(x => x.Equals(entidade));
         }
 
         public IEnumerable<T> ObtenhaTodos()

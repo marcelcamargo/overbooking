@@ -149,7 +149,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DatasDeSaidaController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\VoosController.cs" />
     <Compile Include="Controllers\ControladorPadrao.cs" />
     <Compile Include="Controllers\PassageirosController.cs" />
     <Compile Include="Controllers\RotasController.cs" />
@@ -157,6 +157,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\VooModel.cs" />
     <Compile Include="Models\PassageiroVooModel.cs" />
     <Compile Include="Models\ApresentacaoPicModel.cs" />
     <Compile Include="Models\RotaModel.cs" />
@@ -205,7 +206,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Voos\Index.cshtml" />
     <Content Include="Views\DatasDeSaida\Index.cshtml" />
     <Content Include="Views\Shared\_Pic.cshtml" />
     <Content Include="Views\Idades\Index.cshtml" />

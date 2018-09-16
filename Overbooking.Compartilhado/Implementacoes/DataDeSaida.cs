@@ -9,7 +9,12 @@ namespace Overbooking.Compartilhado.Implementacoes
 
         public override string ToString()
         {
-            return Data.ToString("dd:MM:yyyy HH:mm");
+            return Data.ToString("dd/MM/yyyy HH:mm");
+        }
+
+        public override bool Equals(object obj)
+        {
+            return (obj as DataDeSaida)?.ToString() == ToString();
         }
     }
 }

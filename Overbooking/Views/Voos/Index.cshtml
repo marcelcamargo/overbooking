@@ -1,0 +1,38 @@
+﻿@using Overbooking.Models
+@using System.Collections;
+
+@model IEnumerable<VooModel>
+
+@{
+    ViewBag.Title = "Voos";
+}
+
+<div class="container">
+    <h1 class="page-header titulo">Lista de voos</h1>
+
+    <div class="row">
+        <div class="table-responsive">
+            <table id="tabelaVoos" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Rota</th>
+                        <th>Data</th>
+                        <th>Passageiros</th>
+                        <th>Risco de overbooking</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var voo in Model)
+                    {
+                        <tr>
+                            <td>@voo.Rota</td>
+                            <td>@voo.Data</td>
+                            <td>@voo.QtdPassageiros</td>
+                            <td>@voo.RiscoDeOverbooking %</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

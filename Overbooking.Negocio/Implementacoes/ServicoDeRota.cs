@@ -4,7 +4,7 @@ using Overbooking.Negocio.Interfaces;
 
 namespace Overbooking.Negocio.Implementacoes
 {
-    public class ServicoDeRota : ServicoGenericoDeParametroIndependente<IRota>, IServicoDeRota
+    internal class ServicoDeRota : ServicoGenericoDeParametroIndependente<IRota>, IServicoDeRota
     {
         private IRepositorio<IRota> _repositorio;
 
