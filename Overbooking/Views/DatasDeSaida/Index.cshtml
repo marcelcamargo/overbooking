@@ -16,7 +16,7 @@
         <div class="form-group">
             <label for="Data" class="control-label col-xs-2">Data de saída</label>
             <div class="col-xs-10">
-                <input type="datetime-local" value="@(Model?.Data.Value.ToString("yyyy-MM-ddTHH:mm:ss") ?? DateTime.Now.ToString("yyyy-MM-ddTHH:mm"))" min="@(DateTime.Now.ToString("yyyy-MM-ddTHH:mm"))" class="form-control" id="Data" name="Data" placeholder="Data de saída">
+                <input type="datetime-local" value="@(Model?.Data.Value.ToString("yyyy-MM-ddTHH:mm:ss") ?? DateTime.Now.ToString("yyyy-MM-ddTHH:mm"))" class="form-control" id="Data" name="Data" placeholder="Data de saída">
                 @Html.ValidationMessageFor(model => model.Data)
             </div>
         </div>
