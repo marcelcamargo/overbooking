@@ -211,7 +211,6 @@
     <Content Include="Views\Idades\Index.cshtml" />
     <Content Include="Views\Rotas\Index.cshtml" />
     <Content Include="Views\Passageiros\Index.cshtml" />
-    <Content Include="Views\Erro\Index.cshtml" />
     <Content Include="Views\Shared\Erro.cshtml" />
   </ItemGroup>
   <ItemGroup>
