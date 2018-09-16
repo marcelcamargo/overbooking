@@ -2,7 +2,6 @@
 using Overbooking.Compartilhado.Interfaces;
 using Overbooking.Models;
 using Overbooking.Negocio.Fabricas;
-using System;
 using System.Web.Mvc;
 
 namespace Overbooking.Controllers
@@ -33,7 +32,6 @@ namespace Overbooking.Controllers
         {
             var dataDeSaida = new DataDeSaida
             {
-                Identificador = Guid.NewGuid().ToString(),
                 Data = dataDeSaidaModel.Data.Value,
                 ProbabilidadeDeComparecimento = dataDeSaidaModel.ProbabilidadeDeComparecimento.Value
             };

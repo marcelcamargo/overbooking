@@ -2,7 +2,6 @@
 using Overbooking.Compartilhado.Interfaces;
 using Overbooking.Models;
 using Overbooking.Negocio.Fabricas;
-using System;
 using System.Web.Mvc;
 
 namespace Overbooking.Controllers
@@ -33,7 +32,6 @@ namespace Overbooking.Controllers
         {
             var rota = new Rota
             {
-                Identificador = Guid.NewGuid().ToString(),
                 Origem = rotaModel.Origem,
                 Destino = rotaModel.Destino,
                 ProbabilidadeDeComparecimento = rotaModel.ProbabilidadeDeComparecimento.Value

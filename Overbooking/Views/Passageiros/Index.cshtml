@@ -1,0 +1,91 @@
+﻿@using Overbooking.Models
+
+@model PassageiroVooModel
+
+@{
+    ViewBag.Title = "Passageiros";
+}
+
+<div class="container">
+    <h1 class="page-header titulo">Adicionar passageiros</h1>
+
+    @using (Html.BeginForm("Adicionar", "Passageiros", FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <label for="Data" class="control-label col-xs-2">Nome</label>
+            <div class="col-xs-10">
+                <input type="text" value="@(Model?.Nome)" class="form-control" id="Nome" name="Nome" placeholder="Nome">
+                @Html.ValidationMessageFor(model => model.Nome)
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Data" class="control-label col-xs-2">Idade</label>
+            <div class="col-xs-10">
+                <input type="number" value="@(Model?.Idade)" min="0" max="999" class="form-control" id="Idade" name="Idade" placeholder="Idade">
+                @Html.ValidationMessageFor(model => model.Idade)
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Data" class="control-label col-xs-2">Origem</label>
+            <div class="col-xs-10">
+                <input type="text" value="@(Model?.Origem)" maxlength="3" class="form-control" id="Origem" name="Origem" placeholder="Origem">
+                @Html.ValidationMessageFor(model => model.Origem)
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Data" class="control-label col-xs-2">Destino</label>
+            <div class="col-xs-10">
+                <input type="text" value="@(Model?.Destino)" maxlength="3" class="form-control" id="Destino" name="Destino" placeholder="Destino">
+                @Html.ValidationMessageFor(model => model.Destino)
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Data" class="control-label col-xs-2">Data de saída</label>
+            <div class="col-xs-10">
+                <input type="datetime-local" value="@(Model?.Data.Value.ToString("yyyy-MM-ddTHH:mm:ss") ?? DateTime.Now.ToString("yyyy-MM-ddTHH:mm"))" min="@(DateTime.Now.ToString("yyyy-MM-ddTHH:mm"))" class="form-control" id="Data" name="Data" placeholder="Data de saída">
+                @Html.ValidationMessageFor(model => model.Data)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-offset-2 col-xs-10">
+                <button type="submit" class="btn btn-primary">Adicionar</button>
+            </div>
+        </div>
+
+        @Html.ValidationMessage("Error")
+    }
+
+    <hr />
+
+    <div class="row">
+        <div class="table-responsive">
+            <table id="tabelaVoos" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Idade</th>
+                        <th>Rota</th>
+                        <th>Data</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (ViewBag.PassageirosCadastrados != null)
+                    {
+                        foreach (var passageiro in ViewBag.PassageirosCadastrados)
+                        {
+                            <tr>
+                                <td>@passageiro.Nome</td>
+                                <td>@passageiro.IdadePassageiro</td>
+                                <td>@passageiro.Rota</td>
+                                <td>@passageiro.DataDeSaida</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

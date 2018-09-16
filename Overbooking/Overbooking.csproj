@@ -151,11 +151,13 @@
     <Compile Include="Controllers\DatasDeSaidaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ControladorPadrao.cs" />
+    <Compile Include="Controllers\PassageirosController.cs" />
     <Compile Include="Controllers\RotasController.cs" />
     <Compile Include="Controllers\IdadesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\PassageiroVooModel.cs" />
     <Compile Include="Models\ApresentacaoPicModel.cs" />
     <Compile Include="Models\RotaModel.cs" />
     <Compile Include="Models\IdadeDoPassageiroModel.cs" />
@@ -208,6 +210,7 @@
     <Content Include="Views\Shared\_Pic.cshtml" />
     <Content Include="Views\Idades\Index.cshtml" />
     <Content Include="Views\Rotas\Index.cshtml" />
+    <Content Include="Views\Passageiros\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

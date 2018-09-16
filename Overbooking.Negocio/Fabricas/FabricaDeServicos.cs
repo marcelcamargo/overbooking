@@ -35,7 +35,7 @@ namespace Overbooking.Negocio.Fabricas
         {
             public static IServicoDeVoo Crie()
             {
-                return new ServicoDeVoo(FabricaDeRepositorio<IVoo>.ObtenhaRepositorio());
+                return new ServicoDeVoo(FabricaDeRepositorio<IPassageiroVoo>.ObtenhaRepositorio());
             }
         }
     }

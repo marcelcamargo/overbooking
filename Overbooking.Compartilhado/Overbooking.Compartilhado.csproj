@@ -42,7 +42,7 @@
   <ItemGroup>
     <Compile Include="Implementacoes\DataDeSaida.cs" />
     <Compile Include="Implementacoes\Passageiro.cs" />
-    <Compile Include="Implementacoes\Voo.cs" />
+    <Compile Include="Implementacoes\PassageiroVoo.cs" />
     <Compile Include="Implementacoes\IdadeDoPassageiro.cs" />
     <Compile Include="Implementacoes\ParametroIndependente.cs" />
     <Compile Include="Implementacoes\Rota.cs" />
@@ -51,7 +51,7 @@
     <Compile Include="Interfaces\IParametroIndependente.cs" />
     <Compile Include="Interfaces\IPassageiro.cs" />
     <Compile Include="Interfaces\IRota.cs" />
-    <Compile Include="Interfaces\IVoo.cs" />
+    <Compile Include="Interfaces\IPassageiroVoo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

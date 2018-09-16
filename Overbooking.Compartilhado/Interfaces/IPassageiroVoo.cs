@@ -2,11 +2,9 @@
 
 namespace Overbooking.Compartilhado.Interfaces
 {
-    public interface IVoo 
+    public interface IPassageiroVoo  : IPassageiro
     {
         IRota Rota { get; set; }
         IDataDeSaida DataDeSaida { get; set; }
-        IList<IPassageiro> Passageiros { get; set; }
-        int CapacidadePassageiros { get; }
     }
 }

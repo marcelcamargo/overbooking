@@ -2,7 +2,6 @@
 using Overbooking.Compartilhado.Interfaces;
 using Overbooking.Models;
 using Overbooking.Negocio.Fabricas;
-using System;
 using System.Web.Mvc;
 
 namespace Overbooking.Controllers
@@ -33,7 +32,6 @@ namespace Overbooking.Controllers
         {
             var idadeDoPassageiro = new IdadeDoPassageiro
             {
-                Identificador = Guid.NewGuid().ToString(),
                 Idade = idadeDoPassageiroModel.Idade.Value,
                 ProbabilidadeDeComparecimento = idadeDoPassageiroModel.ProbabilidadeDeComparecimento.Value
             };
