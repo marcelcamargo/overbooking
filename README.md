@@ -15,4 +15,4 @@ Este projeto visa o desenvolvimento de uma calculadora de “overbooking” simp
 - .Net Framework 4.6
 
 ## Suporte ao docker
-`docker pull marcelcamargo/overbooking`
+`docker pull marcelcamargo/overbooking:dev`
