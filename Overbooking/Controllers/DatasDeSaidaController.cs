@@ -2,6 +2,7 @@
 using Overbooking.Compartilhado.Interfaces;
 using Overbooking.Models;
 using Overbooking.Negocio.Fabricas;
+using System;
 using System.Web.Mvc;
 
 namespace Overbooking.Controllers
@@ -18,14 +19,21 @@ namespace Overbooking.Controllers
         {
             if (ModelState.IsValid)
             {
-                var dataDeSaida = FabricaDeDataDeSaida.Crie(model.Data.Value, model.ProbabilidadeDeComparecimento.Value);
+                try
+                {
+                    var dataDeSaida = FabricaDeDataDeSaida.Crie(model.Data.Value, model.ProbabilidadeDeComparecimento.Value);
 
-                _servicoGenerico.Adicione(dataDeSaida);
+                    _servicoGenerico.Adicione(dataDeSaida);
 
-                return RedirectToAction("Index");
+                    return RetorneViewIndex(null);
+                }
+                catch (Exception ex)
+                {
+                    return PartialView("Erro", ex.Message);
+                }
             }
 
-            return View("Index", model);
+            return RetorneViewIndex(model);
         }
     }
 }

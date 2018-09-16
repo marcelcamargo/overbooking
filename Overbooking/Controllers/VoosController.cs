@@ -2,6 +2,7 @@
 using Overbooking.Models;
 using Overbooking.Negocio.Fabricas;
 using Overbooking.Negocio.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
@@ -19,10 +20,17 @@ namespace Overbooking.Controllers
 
         public ActionResult Index()
         {
-            var voos = _servicoDeVoo.ObtenhaTodosVoos();
-            var voosModel = ObtenhaVoosModel(voos);
+            try
+            {
+                var voos = _servicoDeVoo.ObtenhaTodosVoos();
+                var voosModel = ObtenhaVoosModel(voos);
 
-            return View(voosModel);
+                return View(voosModel);
+            }
+            catch (Exception ex)
+            {
+                return PartialView("Erro", ex.Message);
+            }
         }
 
         private IEnumerable<VooModel> ObtenhaVoosModel(IEnumerable<IVoo> listaVoos)

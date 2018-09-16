@@ -204,7 +204,6 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Voos\Index.cshtml" />
     <Content Include="Views\DatasDeSaida\Index.cshtml" />
@@ -212,6 +211,8 @@
     <Content Include="Views\Idades\Index.cshtml" />
     <Content Include="Views\Rotas\Index.cshtml" />
     <Content Include="Views\Passageiros\Index.cshtml" />
+    <Content Include="Views\Erro\Index.cshtml" />
+    <Content Include="Views\Shared\Erro.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

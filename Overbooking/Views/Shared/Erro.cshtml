@@ -1,0 +1,15 @@
+﻿
+@model string
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <h3 class="page-header titulo">Ops! Ocorreu um erro...</h3>
+
+    <div class="alert alert-danger">
+        @Model
+    </div>
+</div>

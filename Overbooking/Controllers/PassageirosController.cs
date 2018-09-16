@@ -2,6 +2,7 @@
 using Overbooking.Models;
 using Overbooking.Negocio.Fabricas;
 using Overbooking.Negocio.Interfaces;
+using System;
 using System.Web.Mvc;
 
 namespace Overbooking.Controllers
@@ -22,9 +23,16 @@ namespace Overbooking.Controllers
 
         protected ActionResult RetorneViewIndex(object model)
         {
-            ViewBag.PassageirosCadastrados = _servicoDeVoo.ObtenhaTodosPassageiros();
+            try
+            {
+                ViewBag.PassageirosCadastrados = _servicoDeVoo.ObtenhaTodosPassageiros();
 
-            return View("Index", model);
+                return View("Index", model);
+            }
+            catch (Exception ex)
+            {
+                return PartialView("Erro", ex.Message);
+            }
         }
 
         [HttpPost]
@@ -32,14 +40,21 @@ namespace Overbooking.Controllers
         {
             if (ModelState.IsValid)
             {
-                var passageiroVoo = FabricaDePassageiroVoo.Crie(model.Nome, 
-                                                                FabricaDeIdadeDoPassageiro.Crie(model.Idade.Value),
-                                                                FabricaDeRota.Crie(model.Origem, model.Destino), 
-                                                                FabricaDeDataDeSaida.Crie(model.Data.Value));
+                try
+                {
+                    var passageiroVoo = FabricaDePassageiroVoo.Crie(model.Nome,
+                                                                    FabricaDeIdadeDoPassageiro.Crie(model.Idade.Value),
+                                                                    FabricaDeRota.Crie(model.Origem, model.Destino),
+                                                                    FabricaDeDataDeSaida.Crie(model.Data.Value));
 
-                _servicoDeVoo.AdicionePassageiro(passageiroVoo);
+                    _servicoDeVoo.AdicionePassageiro(passageiroVoo);
 
-                return RetorneViewIndex(null);
+                    return RetorneViewIndex(null);
+                }
+                catch (Exception ex)
+                {
+                    return PartialView("Erro", ex.Message);
+                }
             }
 
             return RetorneViewIndex(model);

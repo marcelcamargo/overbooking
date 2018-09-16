@@ -1,0 +1,15 @@
+﻿
+@model string
+
+@{
+    Layout = "~/Views/Shared/_newLayout.cshtml";
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+    <h3 class="page-header titulo">Ops! Ocorreu um erro...</h3>
+
+    <div class="alert alert-danger">
+        @Model
+    </div>
+</div>

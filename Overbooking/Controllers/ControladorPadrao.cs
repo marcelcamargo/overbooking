@@ -1,6 +1,7 @@
 ﻿using Overbooking.Compartilhado.Interfaces;
 using Overbooking.Models;
 using Overbooking.Negocio.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
@@ -18,9 +19,16 @@ namespace Overbooking.Controllers
 
         protected ActionResult RetorneViewIndex(object model)
         {
-            ViewBag.ItensCadastrados = ObtenhaItensParaApresentacao(_servicoGenerico.ObtenhaTodos());
+            try
+            {
+                ViewBag.ItensCadastrados = ObtenhaItensParaApresentacao(_servicoGenerico.ObtenhaTodos());
 
-            return View("Index", model);
+                return View("Index", model);
+            }
+            catch(Exception ex)
+            {
+                return PartialView("Erro", ex.Message);
+            }
         }
 
         protected IEnumerable<ApresentacaoPicModel> ObtenhaItensParaApresentacao(IEnumerable<T> listaPic)
